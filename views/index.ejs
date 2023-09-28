@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather of a location</title>
+    <style>
+     body{
+      background-image: #D3CCE3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background-size: 250% 250%;
+      background-repeat:no-repeat;
+     }
+     #container{
+      width:300px;
+      height:390px;
+      background-image:#ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      border:1px solid white;
+      border-radius:15px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      margin-top:10px;
+      row-gap:20px;
+     }
+     #btn:hover{
+      color:white;
+     }
+     #btn{
+      background-color: rgb(0, 106, 255);
+      border-radius:20px;
+      padding:2%;
+     }
+    #dash{
+      margin-top:90px;
+
+    }
+    .cloud{ 
+   margin-top:70px;
+   width:350px;
+   height:120px;
+   background:lightgrey;
+   box-shadow: 10px 10px rgba(0,0,0,0.2);
+   border-radius:100px;
+}
+.cloud::after, .cloud::before{
+    content:"";
+    position:relative;
+    display:inline-block;
+    background:inherit;
+    border-radius:inherit;
+}
+.cloud::before{
+    width:180px;
+    height:180px;
+    top: -70px;
+    left:130px;
+};
+.cloud::after{
+    width:100px;
+    height:100px;
+    top:-220px;
+    left:50px;
+}
+#dash{
+  margin-top:-120px;
+}
+#cld{
+  margin-left:100px;
+}
+    </style>
+  </head>
+  <div id="cld"><div class="cloud"></center></div></div>
+  <center id="dash"><h1>DASHBOARD</h1>
+  <body>
+    <center>
+      <div id="container">
+      <div id="heading"><h1>Weather ??</h1></div>
+    <form method="post" action="/">
+      <div id="contents"><span><label>Enter a location:</label>
+      <input id="inp" name="loc" type="text" placeholder="LOCATION"></span>
+      <br><br>
+      <button id="btn" type="submit">Click to view</button>
+    </div>
+    <div id="display">
+      <p><h1><%= temp %><%= c%></h1></p>
+      <img src="<%= icon %>">
+      <p><%= text %></p>
+      <div>
+       <% if(history.length > 0){ %>
+         <% for(var i=0;i <history.length; i++){ %>
+            <%= history[i].name %>
+            <%} %>
+          <% } %>
+      </div>
+    </div>
+    </form>
+  </div>
+    </center>
+  </body>
+</html>
